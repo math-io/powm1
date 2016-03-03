@@ -3,9 +3,18 @@
 // MODULES //
 
 var tape = require( 'tape' );
+var abs = require( 'math-abs' );
 var expm1 = require( 'math-float64-expm1' );
 var ln = require( 'math-ln' );
 var powm1 = require( './../lib' );
+
+
+// FIXTURES //
+
+var data = JSON.parse( require( './fixtures/output.json' ).program_message );
+var x = data.x;
+var y = data.y;
+var expected = data.expected;
 
 
 // TESTS //
@@ -17,6 +26,21 @@ tape( 'main export is a function', function test( t ) {
 
 tape( 'the function accepts two parameters: a base and an exponent', function test( t ) {
 	t.equal( powm1.length, 2, 'arity is 2' );
+	t.end();
+});
+
+tape( 'the function evaluates the exponential function minus 1 (tested against Boost)', function test( t ) {
+	var delta;
+	var tol;
+	var v;
+	var i;
+
+	for ( i = 0; i < x.length; i++ ) {
+		v = powm1( x[ i ], y[ i ] );
+		delta = abs( v - expected[ i ] );
+		tol = 1e-14 * Math.max( 1, abs( v ), abs( expected[ i ] ) );
+		t.ok( delta <= tol, 'within tolerance. x: ' + x[ i ] + 'y: ' + y[ i ] + '. Value: ' + v + '. Expected: ' + expected[ i ] + '. Tolerance: ' + tol + '.' );
+	}
 	t.end();
 });
 
