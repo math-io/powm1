@@ -62,6 +62,7 @@ tape( 'the function evaluates `xʸ - 1`', function test( t ) {
 	t.equal( powm1( 2, 3 ), 7, '2^3-1 = 7' );
 	t.equal( powm1( -5, 3 ), -126, '(-5)^3-1 = -126' );
 	t.equal( powm1( -5, 2 ), 24, '(-5)^2-1 = 24' );
+	t.equal( powm1( 1e6, 0.1 ), 2.9810717055349727, '1e6^0.1-1 ~ 2.981' );
 	t.end();
 });
 
