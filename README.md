@@ -4,7 +4,9 @@ powm1
 
 > Computes `bˣ - 1`.
 
-When exponent `y` is very small, or when the base `x` is close to 1, using this function is more accurate than `Math.pow( x, y ) - 1`.
+
+When `b` is close to `1` or `x` is small, this implementation is more accurate than naively computing `bˣ` minus `1`.
+
 
 ## Installation
 
@@ -24,22 +26,22 @@ var powm1 = require( 'math-powm1' );
 Computes `bˣ - 1`.
 
 ``` javascript
-var val = powm1( 2, 3 );
+var y = powm1( 2, 3 );
 // returns 7
 
-val = powm1( 4, 0.5 );
+y = powm1( 4, 0.5 );
 // returns 1
 
-val = powm1( 100, 0 );
+y = powm1( 100, 0 );
 // returns 0
 
-val = powm1( Math.PI, 5 );
+y = powm1( Math.PI, 5 );
 // returns ~305.0197
 
-val = powm1( NaN, 3 );
+y = powm1( NaN, 3 );
 // returns NaN
 
-val = powm1( 5, NaN );
+y = powm1( 5, NaN );
 // returns NaN
 ```
 
