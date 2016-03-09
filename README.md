@@ -2,9 +2,15 @@ powm1
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][build-image]][build-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes `xʸ - 1`.
+> Computes `bˣ - 1`.
 
-When exponent `y` is very small, or when the base `x` is close to 1, using this function is more accurate than `Math.pow( x, y ) - 1`.
+<div class="equation" align="center" data-raw-text="y = b^x - 1" data-equation="eq:exponential_function_minus_one">
+	<img src="https://cdn.rawgit.com/math-io/powm1/99f3eabab96c370afbabf0578a1471ca2fb3d184/docs/img/eqn.svg" alt="Exponential function minus one.">
+	<br>
+</div>
+
+When `b` is close to `1` and/or `x` is small, this implementation is more accurate than naively computing `bˣ` minus `1`.
+
 
 ## Installation
 
@@ -19,27 +25,33 @@ $ npm install math-powm1
 var powm1 = require( 'math-powm1' );
 ```
 
-#### powm1( x, y )
+#### powm1( b, x )
 
-Computes `xʸ - 1`.
+Computes `bˣ - 1`.
 
 ``` javascript
-var val = powm1( 2, 3 );
+var y = powm1( 2, 3 );
 // returns 7
 
-val = powm1( 4, 0.5 );
+y = powm1( 4, 0.5 );
 // returns 1
 
-val = powm1( 100, 0 );
+y = powm1( 0, 100 );
+// returns -1
+
+y = powm1( 100, 0 );
 // returns 0
 
-val = powm1( Math.PI, 5 );
+y = powm1( 0, 0 );
+// returns 0
+
+y = powm1( Math.PI, 5 );
 // returns ~305.0197
 
-val = powm1( NaN, 3 );
+y = powm1( NaN, 3 );
 // returns NaN
 
-val = powm1( 5, NaN );
+y = powm1( 5, NaN );
 // returns NaN
 ```
 
@@ -51,12 +63,14 @@ var powm1 = require( 'math-powm1' );
 
 var b;
 var x;
+var y;
 var i;
 
 for ( i = 0; i < 100; i++ ) {
 	b = Math.round( Math.random()*10 );
 	x = Math.round( Math.random()*10 ) - 5;
-	console.log( '%d^%d = %d', b, x, powm1( b, x ) );
+	y = powm1( b, x );
+	console.log( '%d^%d - 1 = %d', b, x, y );
 }
 ```
 
