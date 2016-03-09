@@ -1,7 +1,7 @@
 {
   "name": "math-powm1",
   "version": "0.0.0",
-  "description": "Computes xʸ - 1.",
+  "description": "Computes bˣ - 1.",
   "author": {
     "name": "Philipp Burckhardt",
     "email": "pburckhardt@outlook.com"

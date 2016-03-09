@@ -36,29 +36,29 @@ tape( 'if provided a base equal to `0`, the function always returns `-1`', funct
 	t.end();
 });
 
-tape( 'the function evaluates `xʸ - 1` (Boost)', function test( t ) {
+tape( 'the function evaluates `bˣ - 1` (Boost)', function test( t ) {
 	var expected;
 	var delta;
 	var tol;
+	var b;
 	var x;
 	var y;
-	var v;
 	var i;
 
-	x = data.x;
-	y = data.y;
+	b = data.x;
+	x = data.y;
 	expected = data.expected;
 
-	for ( i = 0; i < x.length; i++ ) {
-		v = powm1( x[ i ], y[ i ] );
-		delta = abs( v - expected[ i ] );
-		tol = 3.3e-15 * Math.max( 1, abs( v ), abs( expected[ i ] ) );
-		t.ok( delta <= tol, 'within tolerance. x: ' + x[ i ] + 'y: ' + y[ i ] + '. Value: ' + v + '. Expected: ' + expected[ i ] + '. Tolerance: ' + tol + '.' );
+	for ( i = 0; i < b.length; i++ ) {
+		y = powm1( b[ i ], x[ i ] );
+		delta = abs( y - expected[ i ] );
+		tol = 3.3e-15 * Math.max( 1, abs( y ), abs( expected[ i ] ) );
+		t.ok( delta <= tol, 'within tolerance. b: ' + b[ i ] + 'x: ' + x[ i ] + '. Value: ' + y + '. Expected: ' + expected[ i ] + '. Tolerance: ' + tol + '.' );
 	}
 	t.end();
 });
 
-tape( 'the function evaluates `xʸ - 1`', function test( t ) {
+tape( 'the function evaluates `bˣ - 1`', function test( t ) {
 	t.equal( powm1( 2, 3 ), 7, '2^3-1 = 7' );
 	t.equal( powm1( -5, 3 ), -126, '(-5)^3-1 = -126' );
 	t.equal( powm1( -5, 2 ), 24, '(-5)^2-1 = 24' );
@@ -66,7 +66,7 @@ tape( 'the function evaluates `xʸ - 1`', function test( t ) {
 	t.end();
 });
 
-tape( 'the function evaluates `xʸ - 1` as expm1( ln(x) * y ) for sufficiently small x or y', function test( t ) {
+tape( 'the function evaluates `bˣ - 1` as expm1( ln(b) * x ) for sufficiently small b or x', function test( t ) {
 	var expected;
 	var actual;
 
@@ -97,13 +97,13 @@ tape( 'the function returns `NaN` if provided a negative base and a exponent whi
 });
 
 tape( 'the function returns `NaN` if provided a `NaN` for the exponent', function test( t ) {
-	var val = powm1( -3, NaN );
-	t.ok( val !== val, 'returns NaN' );
+	var y = powm1( -3, NaN );
+	t.ok( y !== y, 'returns NaN' );
 	t.end();
 });
 
 tape( 'the function returns `NaN` if provided a `NaN` for the base', function test( t ) {
-	var val = powm1( NaN, 5 );
-	t.ok( val !== val, 'returns NaN' );
+	var y = powm1( NaN, 5 );
+	t.ok( y !== y, 'returns NaN' );
 	t.end();
 });

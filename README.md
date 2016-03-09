@@ -2,7 +2,7 @@ powm1
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][build-image]][build-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Computes `xʸ - 1`.
+> Computes `bˣ - 1`.
 
 When exponent `y` is very small, or when the base `x` is close to 1, using this function is more accurate than `Math.pow( x, y ) - 1`.
 
@@ -19,9 +19,9 @@ $ npm install math-powm1
 var powm1 = require( 'math-powm1' );
 ```
 
-#### powm1( x, y )
+#### powm1( b, x )
 
-Computes `xʸ - 1`.
+Computes `bˣ - 1`.
 
 ``` javascript
 var val = powm1( 2, 3 );
@@ -49,16 +49,16 @@ val = powm1( 5, NaN );
 ``` javascript
 var powm1 = require( 'math-powm1' );
 
+var b;
 var x;
 var y;
-var z;
 var i;
 
 for ( i = 0; i < 100; i++ ) {
-	x = Math.round( Math.random()*10 );
-	y = Math.round( Math.random()*10 ) - 5;
-	z = powm1( x, y );
-	console.log( '%d^%d - 1 = %d', x, y, z );
+	b = Math.round( Math.random()*10 );
+	x = Math.round( Math.random()*10 ) - 5;
+	y = powm1( b, x );
+	console.log( '%d^%d - 1 = %d', b, x, y );
 }
 ```
 
