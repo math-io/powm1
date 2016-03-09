@@ -4,8 +4,12 @@ powm1
 
 > Computes `bˣ - 1`.
 
+<div class="equation" align="center" data-raw-text="y = b^x - 1" data-equation="eq:exponential_function_minus_one">
+	<img src="https://cdn.rawgit.com/math-io/powm1/99f3eabab96c370afbabf0578a1471ca2fb3d184/docs/img/eqn.svg" alt="Exponential function minus one.">
+	<br>
+</div>
 
-When `b` is close to `1` or `x` is small, this implementation is more accurate than naively computing `bˣ` minus `1`.
+When `b` is close to `1` and/or `x` is small, this implementation is more accurate than naively computing `bˣ` minus `1`.
 
 
 ## Installation
