@@ -52,7 +52,7 @@ tape( 'the function evaluates `xʸ - 1` (Boost)', function test( t ) {
 	for ( i = 0; i < x.length; i++ ) {
 		v = powm1( x[ i ], y[ i ] );
 		delta = abs( v - expected[ i ] );
-		tol = 1e-15 * Math.max( 1, abs( v ), abs( expected[ i ] ) );
+		tol = 3.3e-15 * Math.max( 1, abs( v ), abs( expected[ i ] ) );
 		t.ok( delta <= tol, 'within tolerance. x: ' + x[ i ] + 'y: ' + y[ i ] + '. Value: ' + v + '. Expected: ' + expected[ i ] + '. Tolerance: ' + tol + '.' );
 	}
 	t.end();
