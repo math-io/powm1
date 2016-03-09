@@ -36,7 +36,13 @@ var y = powm1( 2, 3 );
 y = powm1( 4, 0.5 );
 // returns 1
 
+y = powm1( 0, 100 );
+// returns -1
+
 y = powm1( 100, 0 );
+// returns 0
+
+y = powm1( 0, 0 );
 // returns 0
 
 y = powm1( Math.PI, 5 );
