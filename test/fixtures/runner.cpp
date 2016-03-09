@@ -50,7 +50,7 @@ int main() {
 	vector<double> y = linspace( 10.0, 1.0, 100 );
 	vector<double> expected;
 
-	for ( int i = 0; i < 100; i++  ) {
+	for ( int i = 0; i < 100; i++ ) {
 		double arg1 = x[ i ];
 		double arg2 = y[ i ];
 		expected.push_back( boost::math::powm1( arg1, arg2 ) );

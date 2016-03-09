@@ -20,7 +20,7 @@ var expected = data.expected;
 // TESTS //
 
 tape( 'main export is a function', function test( t ) {
-	t.ok( typeof powm1 === 'function', 'main export is a function' );
+	t.equal( typeof powm1, 'function', 'main export is a function' );
 	t.end();
 });
 
@@ -29,7 +29,7 @@ tape( 'the function accepts two parameters: a base and an exponent', function te
 	t.end();
 });
 
-tape( 'the function evaluates the exponential function minus 1 (tested against Boost)', function test( t ) {
+tape( 'the function evaluates the exponential function minus 1 (Boost)', function test( t ) {
 	var delta;
 	var tol;
 	var v;
