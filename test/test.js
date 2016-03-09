@@ -27,11 +27,24 @@ tape( 'the function accepts two parameters: a base and an exponent', function te
 	t.end();
 });
 
-tape( 'if provided a base equal to `0`, the function always returns `-1`', function test( t ) {
+tape( 'if provided an exponent equal to `0`, the function returns `0`', function test( t ) {
 	var i;
-	for ( i = 0; i < 100; i++ ) {
-		t.equal( powm1( 0, i ), -1, 'returns -1' );
-		t.equal( powm1( 0, Math.random()*10-5 ), -1, 'returns -1' );
+	for ( i = -100; i < 100; i++ ) {
+		t.equal( powm1( i, 0.0 ), 0.0, 'returns -1' );
+		t.equal( powm1( Math.random()*10-5, 0.0 ), 0.0, 'returns 0' );
+	}
+	t.end();
+});
+
+tape( 'if provided a base equal to `0`, the function returns `-1` (except when the base is 0)', function test( t ) {
+	var i;
+	for ( i = -100; i < 100; i++ ) {
+		if ( i === 0 ) {
+			t.equal( powm1( 0.0, i ), 0.0, 'returns 0' );
+			continue;
+		}
+		t.equal( powm1( 0.0, i ), -1, 'returns -1' );
+		t.equal( powm1( 0.0, Math.random()*10-5 ), -1, 'returns -1' );
 	}
 	t.end();
 });
